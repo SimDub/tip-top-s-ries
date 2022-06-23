@@ -8,15 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  image ='';
+
   film ='';
   nomFilm ='';
-  anneeFilm ='';
+  isFavoris=false;
   films: any[]= [];
   favoris: any[]= [];
   constructor(private http: HttpClient) {}
 
-  onRecherche(){
+  onRechercher(){
     const val =this.film;
     const url ='http://www.omdbapi.com/?apikey=efdc2275&s='+val;
     this.film='';
@@ -28,7 +28,17 @@ export class HomePage {
   }
 
   onAjouterFavoris(i: number){
+    this.isFavoris = false;
     this.favoris.push(this.films[i]);
+  }
+
+  onRecherche(){
+    this.isFavoris = false;
+    this.films = [];
+  }
+  onVoirFavoris(){
+    this.films = this.favoris;
+    this.isFavoris = true;
   }
 
 }
