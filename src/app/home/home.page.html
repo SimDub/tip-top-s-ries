@@ -14,7 +14,7 @@
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button expand="block" color="primary"(click)="onVoirFavoris()">
+          <ion-button expand="block" color="primary" (click)="onVoirFavoris()">
             Favoris
           </ion-button>
         </ion-col>
@@ -41,7 +41,11 @@
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button expand="block" color="secondary" (click)="onVoirFavoris()">
+          <ion-button
+            expand="block"
+            color="secondary"
+            (click)="onVoirFavoris()"
+          >
             Favoris
           </ion-button>
         </ion-col>
@@ -59,28 +63,28 @@
               </ion-col>
 
               <ion-col size="2">
-                <ion-button
-                  size="small"
-                  color="warning"
-                  (click)="onAjouterFavoris(i)"
-                >
-                  <div *ngIf="!isFavoris;else favoris">
+                <div *ngIf="!isFavoris;else favoris">
+                  <ion-button
+                    size="small"
+                    color="warning"
+                    (click)="onAjouterFavoris(i)"
+                  >
                     <ion-icon name="star-outline"></ion-icon>
-                  </div>
-                  <ng-template #favoris
-                    ><ion-icon name="star-half-outline"></ion-icon
-                  ></ng-template>
-                </ion-button>
+                  </ion-button>
+                </div>
+                <ng-template #favoris>
+                  <ion-button
+                    size="small"
+                    color="warning"
+                    (click)="onSupprimerFavoris(i)"
+                    ><ion-icon name="star-half-outline"></ion-icon>
+                  </ion-button>
+                </ng-template>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card-subtitle>
-        <ion-card-title></ion-card-title>
       </ion-card-header>
-    </ion-card>
-    <ion-card *ngFor="let film of films">
-      <ion-item> </ion-item>
-      <ion-item> </ion-item>
     </ion-card>
   </ion-list>
 </ion-content>
