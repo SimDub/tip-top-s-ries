@@ -1,0 +1,7 @@
+{
+  "name": "tip-top-series",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
