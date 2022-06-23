@@ -1,20 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Tip Top Séries </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="film" placeholder="Film"></ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-button
+      size="large"
+      expand="block"
+      color="success"
+      (click)="onRecherche()"
+    >
+      <ion-icon name="search-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-card *ngFor="let film of films; index as i">
+      <ion-img [src]="film.Poster"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                <ion-row>{{ film.Title}}</ion-row>
+                <ion-row>{{ film.Year}}</ion-row>
+              </ion-col>
+
+              <ion-col size="2">
+                <ion-button
+                  size="small"
+                  color="warning"
+                  (click)="onAjouterFavoris(i)"
+                >
+                  <ion-icon name="star-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-subtitle>
+        <ion-card-title></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card *ngFor="let film of films">
+      <ion-item> </ion-item>
+      <ion-item> </ion-item>
+    </ion-card>
+  </ion-list>
 </ion-content>
